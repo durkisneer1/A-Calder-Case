@@ -1,0 +1,42 @@
+BasedOnStyle: WebKit
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+
+BreakBeforeBraces: Allman
+BraceWrapping:
+  AfterControlStatement: true
+  AfterFunction: true
+  AfterEnum: true
+  AfterStruct: true
+  AfterClass: true
+  BeforeCatch: true
+  BeforeElse: true
+
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: true     # Needed for `while (...) ;`
+AllowShortFunctionsOnASingleLine: None
+AllowShortBlocksOnASingleLine: false
+
+BinPackArguments: false
+BinPackParameters: false
+
+AlignAfterOpenBracket: DontAlign         # Prevent extreme indent in nested lists
+AlignOperands: false
+AlignConsecutiveAssignments: false
+AlignConsecutiveDeclarations: false
+
+AlwaysBreakAfterReturnType: None
+AlwaysBreakTemplateDeclarations: Yes
+
+SpacesBeforeTrailingComments: 1
+SpaceBeforeParens: ControlStatements     # if (), while (), but not function calls
+
+PenaltyReturnTypeOnItsOwnLine: 200
+PenaltyBreakBeforeFirstCallParameter: 1
+PenaltyBreakString: 1000
+PenaltyBreakComment: 300
+PenaltyExcessCharacter: 1000000
+
+SortIncludes: false
+InsertTrailingNewline: true
