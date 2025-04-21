@@ -35,6 +35,6 @@
 .vscode/
 
 # Meson
-subprojects/
+subprojects/*
 !subprojects/kraken-engine.wrap
 build/

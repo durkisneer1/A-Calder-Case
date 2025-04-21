@@ -2,7 +2,7 @@
 
 #include <KrakenEngine.hpp>
 
-class Player
+class Player final
 {
 public:
     Player();
