@@ -16,7 +16,7 @@ public:
 
 private:
     const kn::Texture bgTex;
+    kn::Texture lightTex;
     kn::TileMap tileMap;
-    const kn::Layer* groundLayer;
     Player player;
 };

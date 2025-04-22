@@ -6,10 +6,10 @@
 class Player final
 {
 public:
-    Player();
+    Player(const kn::Layer* colLayer);
     ~Player() = default;
 
-    void update(double dt, const std::vector<kn::Tile>& colTiles);
+    void update(double dt);
 
 private:
     kn::AnimationController anim;
@@ -18,6 +18,7 @@ private:
     bool facingRight = true;
     const double SPEED = 40;
     bool onGround = false;
+    const kn::Layer* colLayer;
 
-    void handleCollision(int axis, const std::vector<kn::Tile>& colTiles);
+    void handleCollision(int axis);
 };

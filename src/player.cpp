@@ -3,14 +3,14 @@
 #define AxisX 0
 #define AxisY 1
 
-Player::Player()
-    : rect(8, 56, 21, 41)
+Player::Player(const kn::Layer* colLayer)
+    : rect(8, 56, 21, 41), colLayer(colLayer)
 {
     anim.loadSpriteSheet("idle", "../assets/player/idle.png", rect.size(), 7);
     anim.loadSpriteSheet("walk", "../assets/player/walk.png", rect.size(), 7);
 }
 
-void Player::update(const double dt, const std::vector<kn::Tile>& colTiles)
+void Player::update(const double dt)
 {
     if (onGround)
     {
@@ -40,18 +40,18 @@ void Player::update(const double dt, const std::vector<kn::Tile>& colTiles)
 
     vel.x = xDir * SPEED;
     rect.x += static_cast<float>(vel.x * dt);
-    handleCollision(AxisX, colTiles);
+    handleCollision(AxisX);
     rect.y += static_cast<float>(vel.y * dt);
-    handleCollision(AxisY, colTiles);
+    handleCollision(AxisY);
 
     const kn::Frame* frame = anim.nextFrame(dt);
     frame->tex->flip.h = !facingRight;
     kn::window::blit(*frame->tex, rect, frame->rect);
 }
 
-void Player::handleCollision(const int axis, const std::vector<kn::Tile>& colTiles)
+void Player::handleCollision(const int axis)
 {
-    for (const auto& tile : colTiles)
+    for (const auto& tile : colLayer->tiles)
         if (rect.collideRect(tile.rect))
         {
             if (axis == AxisX)
