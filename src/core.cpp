@@ -4,6 +4,9 @@
 Core::Core()
     : currState(AppState::WORLD)
 {
+    kn::window::init({ 320, 180 }, "Noir Jam", true);
+    kn::camera = { -8, -30 };
+
     kn::input::bind("left",
         {
             kn::InputAction(kn::S_a),
@@ -13,6 +16,11 @@ Core::Core()
         {
             kn::InputAction(kn::S_d),
             kn::InputAction(kn::C_AXIS_LEFTX, true),
+        });
+    kn::input::bind("jump",
+        {
+            kn::InputAction(kn::S_SPACE),
+            kn::InputAction(kn::C_SOUTH),
         });
 
     stateMap[AppState::WORLD] = new WorldState(this);
@@ -26,6 +34,7 @@ Core::~Core()
 void Core::run()
 {
     const kn::Color BG_COLOR = kn::color::fromHex("#1f1f29");
+    clock.tick(240);
 
     while (kn::window::isOpen())
     {

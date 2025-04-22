@@ -2,7 +2,6 @@
 
 #include <KrakenEngine.hpp>
 #include <unordered_map>
-#include "Player.hpp"
 
 class BaseState;
 
@@ -16,7 +15,6 @@ class Core final
 public:
     double dt;
     AppState currState;
-    Player player;
 
     Core();
     ~Core();

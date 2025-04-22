@@ -3,10 +3,15 @@
 
 WorldState::WorldState(Core* core)
     : BaseState(core)
+    , bgTex("../assets/environ/room.png")
+    , tileMap("../assets/environ/border.tmx")
 {
+    groundLayer = tileMap.getLayer("ground");
 }
 
 void WorldState::update()
 {
-    m_core->player.update(m_core->dt);
+    kn::window::blit(bgTex, { 8, 8 });
+    tileMap.drawMap();
+    player.update(m_core->dt, groundLayer->tiles);
 }
