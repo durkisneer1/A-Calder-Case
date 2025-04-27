@@ -7,7 +7,9 @@ class BaseState;
 
 enum class AppState
 {
-    WORLD,
+    ROOM,
+    OUTSIDE,
+    CRIME,
 };
 
 class Core final
@@ -22,7 +24,5 @@ public:
     void run();
 
 private:
-    kn::Event event;
-    kn::Clock clock;
     std::unordered_map<AppState, BaseState*> stateMap;
 };

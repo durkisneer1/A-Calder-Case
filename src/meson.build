@@ -2,6 +2,6 @@ src = [
     'src/player.cpp',
     'src/core.cpp',
 ] + [
-    'src/states/base_state.cpp',
-    'src/states/world_state.cpp',
+    'src/states/outside_state.cpp',
+    'src/states/room_state.cpp',
 ]

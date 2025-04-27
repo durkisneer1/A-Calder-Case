@@ -39,4 +39,3 @@ PenaltyBreakComment: 300
 PenaltyExcessCharacter: 1000000
 
 SortIncludes: false
-InsertTrailingNewline: true

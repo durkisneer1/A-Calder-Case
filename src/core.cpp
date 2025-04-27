@@ -1,11 +1,12 @@
 #include "Core.hpp"
-#include "states/WorldState.hpp"
+#include "Input.hpp"
+#include "states/RoomState.hpp"
+#include "states/OutsideState.hpp"
 
 Core::Core()
-    : currState(AppState::WORLD)
+    : currState(AppState::OUTSIDE)
 {
     kn::window::init({ 320, 180 }, "Noir Jam", true);
-    kn::camera = { -8, -30 };
 
     kn::input::bind("left",
         {
@@ -23,18 +24,26 @@ Core::Core()
             kn::InputAction(kn::C_SOUTH),
         });
 
-    stateMap[AppState::WORLD] = new WorldState(this);
+    stateMap[AppState::ROOM] = new RoomState(this);
+    stateMap[AppState::OUTSIDE] = new OutsideState(this);
 }
 
 Core::~Core()
 {
+    for (auto& [key, value] : stateMap)
+    {
+        delete value;
+        value = nullptr;
+    }
+    stateMap.clear();
     kn::window::quit();
 }
 
 void Core::run()
 {
-    const kn::Color BG_COLOR = kn::color::fromHex("#1f1f29");
-    clock.tick(240);
+    kn::Event event;
+    kn::Clock clock;
+    clock.tick(240); // Clear first tick
 
     while (kn::window::isOpen())
     {
@@ -44,7 +53,6 @@ void Core::run()
         if (kn::key::isJustPressed(kn::K_ESC))
             kn::window::close();
 
-        kn::window::clear(BG_COLOR);
         stateMap.at(currState)->update();
         kn::window::flip();
     }

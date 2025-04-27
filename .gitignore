@@ -38,3 +38,6 @@
 subprojects/*
 !subprojects/kraken-engine.wrap
 build/
+
+# CLangFormatter
+.cache/

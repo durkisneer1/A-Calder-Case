@@ -3,11 +3,17 @@
 #define AxisX 0
 #define AxisY 1
 
-Player::Player(const kn::Layer* colLayer)
-    : rect(8, 56, 21, 41), colLayer(colLayer)
+Player::Player(const kn::Layer* colLayer, const kn::Vec2& spawnPos)
+    : rect(spawnPos, 21, 41)
+    , colLayer(colLayer)
 {
     anim.loadSpriteSheet("idle", "../assets/player/idle.png", rect.size(), 7);
     anim.loadSpriteSheet("walk", "../assets/player/walk.png", rect.size(), 7);
+}
+
+kn::Rect Player::getRect() const
+{
+    return rect;
 }
 
 void Player::update(const double dt)
@@ -52,24 +58,24 @@ void Player::update(const double dt)
 void Player::handleCollision(const int axis)
 {
     for (const auto& tile : colLayer->tiles)
-        if (rect.collideRect(tile.rect))
+        if (rect.collideRect(tile.collider))
         {
             if (axis == AxisX)
             {
                 if (vel.x > 0.0)
-                    rect.right(tile.rect.left());
+                    rect.right(tile.collider.left());
                 else if (vel.x < 0.0)
-                    rect.left(tile.rect.right());
+                    rect.left(tile.collider.right());
             }
             else if (axis == AxisY)
             {
                 if (vel.y > 0.0)
                 {
-                    rect.bottom(tile.rect.top());
+                    rect.bottom(tile.collider.top());
                     onGround = true;
                 }
                 else if (vel.y < 0.0)
-                    rect.top(tile.rect.bottom());
+                    rect.top(tile.collider.bottom());
                 vel.y = 0.0;
             }
             break;

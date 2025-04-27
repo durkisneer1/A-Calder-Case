@@ -1,15 +1,16 @@
 #pragma once
 
 #include <KrakenEngine.hpp>
-#include <vector>
 
 class Player final
 {
 public:
-    Player(const kn::Layer* colLayer);
+    Player(const kn::Layer* colLayer, const kn::Vec2& spawnPos);
     ~Player() = default;
 
     void update(double dt);
+
+    kn::Rect getRect() const;
 
 private:
     kn::AnimationController anim;
