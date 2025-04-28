@@ -19,5 +19,9 @@ private:
     kn::TileMap tileMap;
     Player player;
     kn::Rect doorRect { 530, 56, 6, 48 };
-    kn::Texture bgDarken;
+    const kn::Texture firstPass;
+    const kn::Texture treeTex;
+    const kn::Texture bigTreeTex;
+    const kn::Texture bgTrees;
+    const kn::Texture multLayer;
 };
