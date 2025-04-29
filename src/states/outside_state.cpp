@@ -44,6 +44,7 @@ void OutsideState::update()
         }
     }
 
+    car.update();
     player.update(m_core->dt);
     tileMap.getLayer("grass")->draw();
     kn::window::blit(multLayer, { 0, kn::camera.y });

@@ -1,11 +1,11 @@
 #pragma once
 
 #include "BaseState.hpp"
+#include "Car.hpp"
 #include "Player.hpp"
 #include <KrakenEngine.hpp>
 
 class Core;
-class Player;
 
 class OutsideState final : public BaseState
 {
@@ -18,6 +18,7 @@ public:
 private:
     kn::TileMap tileMap;
     Player player;
+    Car car;
     kn::Rect doorRect { 530, 56, 6, 48 };
     const kn::Texture firstPass;
     const kn::Texture treeTex;
