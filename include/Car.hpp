@@ -9,10 +9,11 @@ public:
     Car();
     ~Car() = default;
 
-    void update();
+    bool updateAndCollide(const kn::Rect &playerRect);
 
 private:
     kn::Texture tex;
-    kn::Rect drawRect;
+    kn::Texture highlight;
+    kn::Rect rect;
     AppState nextState;
 };

@@ -12,7 +12,7 @@ class OutsideState final : public BaseState
 public:
     OutsideState(Core* core);
     ~OutsideState() = default;
-
+    
     void update() override;
 
 private:

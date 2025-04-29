@@ -2,6 +2,7 @@
 #include "Input.hpp"
 #include "states/RoomState.hpp"
 #include "states/OutsideState.hpp"
+#include "states/CrimeState.hpp"
 
 Core::Core()
     : currState(AppState::OUTSIDE)
@@ -26,6 +27,7 @@ Core::Core()
 
     stateMap[AppState::ROOM] = new RoomState(this);
     stateMap[AppState::OUTSIDE] = new OutsideState(this);
+    stateMap[AppState::CRIME] = new CrimeState(this);
 }
 
 Core::~Core()

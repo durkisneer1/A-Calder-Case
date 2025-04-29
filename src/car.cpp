@@ -2,12 +2,20 @@
 #include "Core.hpp"
 
 Car::Car()
-    : tex("../assets/car.png"), drawRect(tex.getRect()), nextState(AppState::CRIME)
+    : tex("../assets/car.png")
+    , highlight("../assets/car-highlight.png")
+    , rect(tex.getRect())
+    , nextState(AppState::CRIME)
 {
-    drawRect.bottomLeft({16, 104});
+    rect.bottomLeft({ 16, 104 });
 }
 
-void Car::update()
+bool Car::updateAndCollide(const kn::Rect& playerRect)
 {
-    kn::window::blit(tex, drawRect);
+    const bool collides = rect.collideRect(playerRect);
+    if (collides)
+        kn::window::blit(highlight, rect);
+    kn::window::blit(tex, rect);
+
+    return collides;
 }

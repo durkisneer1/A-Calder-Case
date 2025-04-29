@@ -1,0 +1,19 @@
+#pragma once
+
+#include <KrakenEngine.hpp>
+#include "states/BaseState.hpp"
+#include "Player.hpp"
+
+class Core;
+
+class CrimeState final : public BaseState
+{
+public:
+    CrimeState(Core* core);
+    ~CrimeState() = default;
+
+    void update() override;
+
+private:
+    Player player;
+};

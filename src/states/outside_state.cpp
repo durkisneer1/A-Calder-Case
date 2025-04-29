@@ -39,12 +39,12 @@ void OutsideState::update()
     {
         kn::draw::rect(doorRect, kn::color::YELLOW, 1);
         if (kn::key::isJustPressed(kn::S_e))
-        {
             m_core->currState = AppState::ROOM;
-        }
     }
 
-    car.update();
+    if (car.updateAndCollide(player.getRect()) && kn::key::isJustPressed(kn::S_e))
+        m_core->currState = AppState::CRIME;
+
     player.update(m_core->dt);
     tileMap.getLayer("grass")->draw();
     kn::window::blit(multLayer, { 0, kn::camera.y });
