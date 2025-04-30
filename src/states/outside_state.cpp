@@ -46,6 +46,6 @@ void OutsideState::update()
         m_core->currState = AppState::CRIME;
 
     player.update(m_core->dt);
-    tileMap.getLayer("grass")->draw();
     kn::window::blit(multLayer, { 0, kn::camera.y });
+    tileMap.getLayer("grass")->draw();
 }

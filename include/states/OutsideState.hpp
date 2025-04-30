@@ -12,7 +12,7 @@ class OutsideState final : public BaseState
 public:
     OutsideState(Core* core);
     ~OutsideState() = default;
-    
+
     void update() override;
 
 private:
@@ -20,6 +20,7 @@ private:
     Player player;
     Car car;
     kn::Rect doorRect { 530, 56, 6, 48 };
+
     const kn::Texture firstPass;
     const kn::Texture treeTex;
     const kn::Texture bigTreeTex;

@@ -50,11 +50,10 @@ void Player::update(const double dt)
     rect.y += static_cast<float>(vel.y * dt);
     handleCollision(AxisY);
 
-    const auto winSize = kn::window::getSize();
     if (rect.left() < 0)
         rect.left(0);
-    if (rect.right() > winSize.x)
-        rect.right(winSize.x);
+    if (rect.right() > 544)
+        rect.right(544);
 
     const kn::Frame* frame = anim.nextFrame(dt);
     frame->tex->flip.h = !facingRight;
