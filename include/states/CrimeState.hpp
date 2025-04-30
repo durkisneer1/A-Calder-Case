@@ -15,5 +15,8 @@ public:
     void update() override;
 
 private:
+    kn::TileMap tileMap;
     Player player;
+    
+    const kn::Texture bgTex;
 };

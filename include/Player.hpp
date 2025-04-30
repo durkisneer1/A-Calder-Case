@@ -17,7 +17,7 @@ private:
     kn::Vec2 vel;
     kn::Rect rect;
     bool facingRight = true;
-    const double SPEED = 40;
+    const double SPEED = 40; // 40
     bool onGround = false;
     const kn::Layer* colLayer;
 

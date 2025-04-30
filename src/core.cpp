@@ -5,7 +5,7 @@
 #include "states/CrimeState.hpp"
 
 Core::Core()
-    : currState(AppState::OUTSIDE)
+    : currState(AppState::ROOM)  // AppState::ROOM
 {
     kn::window::init({ 320, 180 }, "Noir Jam", true);
 
