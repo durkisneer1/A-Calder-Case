@@ -18,5 +18,14 @@ void CrimeState::update()
     kn::window::blit(bgTex, { 8, 8 });
     tileMap.drawMap();
 
+    for (const auto& tapeTile : tileMap.getLayer("tape")->tiles)
+    {
+        if (kn::key::isJustPressed(kn::S_e) && player.getRect().collideRect(tapeTile.collider))
+        {
+            std::cout << "Checked tape\n";
+            break;
+        }
+    }
+
     player.update(m_core->dt);
 }
