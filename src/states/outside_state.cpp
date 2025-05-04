@@ -45,7 +45,8 @@ void OutsideState::update()
     if (car.updateAndCollide(player.getRect()) && kn::key::isJustPressed(kn::S_e))
         m_core->currState = AppState::CRIME;
 
-    player.update(m_core->dt);
+    player.move(m_core->dt);
+    player.draw(m_core->dt);
     kn::window::blit(multLayer, { 0, kn::camera.y });
     tileMap.getLayer("grass")->draw();
 }

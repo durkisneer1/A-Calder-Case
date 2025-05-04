@@ -22,10 +22,12 @@ void CrimeState::update()
     {
         if (kn::key::isJustPressed(kn::S_e) && player.getRect().collideRect(tapeTile.collider))
         {
-            std::cout << "Checked tape\n";
+            inScene = !inScene;
             break;
         }
     }
 
-    player.update(m_core->dt);
+    player.draw(m_core->dt);
+
+    inScene ? crimeScene.update() : player.move(m_core->dt);
 }

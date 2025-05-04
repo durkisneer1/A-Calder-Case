@@ -3,6 +3,7 @@
 #include <KrakenEngine.hpp>
 #include "states/BaseState.hpp"
 #include "Player.hpp"
+#include "puzzles/CrimeScene.hpp"
 
 class Core;
 
@@ -17,6 +18,8 @@ public:
 private:
     kn::TileMap tileMap;
     Player player;
-    
     const kn::Texture bgTex;
+
+    CrimeScene crimeScene;
+    bool inScene = false;
 };

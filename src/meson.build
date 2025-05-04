@@ -6,4 +6,6 @@ src = [
     'src/states/crime_state.cpp',
     'src/states/outside_state.cpp',
     'src/states/room_state.cpp',
+] + [
+    'src/puzzles/crime_scene.cpp',
 ]

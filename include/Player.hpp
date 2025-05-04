@@ -8,7 +8,8 @@ public:
     Player(const kn::Layer* colLayer, const kn::Vec2& spawnPos);
     ~Player() = default;
 
-    void update(double dt);
+    void move(double dt);
+    void draw(double dt);
 
     kn::Rect getRect() const;
 
@@ -17,7 +18,7 @@ private:
     kn::Vec2 vel;
     kn::Rect rect;
     bool facingRight = true;
-    const double SPEED = 40; // 40
+    const double SPEED = 100; // 40
     bool onGround = false;
     const kn::Layer* colLayer;
 

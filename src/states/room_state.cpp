@@ -15,7 +15,7 @@ RoomState::RoomState(Core* core)
 void RoomState::update()
 {
     kn::camera = m_camera;
-    
+
     kn::window::clear(m_bgColor);
 
     kn::window::blit(bgTex, { 8, 8 });
@@ -30,7 +30,8 @@ void RoomState::update()
         }
     }
 
-    player.update(m_core->dt);
+    player.move(m_core->dt);
+    player.draw(m_core->dt);
 
     kn::window::blit(lightTex, { 8, 8 });
 }

@@ -16,7 +16,7 @@ kn::Rect Player::getRect() const
     return rect;
 }
 
-void Player::update(const double dt)
+void Player::move(const double dt)
 {
     if (onGround)
     {
@@ -54,10 +54,15 @@ void Player::update(const double dt)
         rect.left(0);
     if (rect.right() > 544)
         rect.right(544);
+}
 
+void Player::draw(const double dt)
+{
     const kn::Frame* frame = anim.nextFrame(dt);
     frame->tex->flip.h = !facingRight;
     kn::window::blit(*frame->tex, rect, frame->rect);
+
+    anim.setAnim("idle"); // for movement lock
 }
 
 void Player::handleCollision(const int axis)

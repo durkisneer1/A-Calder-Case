@@ -2,7 +2,26 @@
 
 #include <KrakenEngine.hpp>
 
-class EvidenceItem;
+class EvidenceItem
+{
+public:
+    EvidenceItem(const std::string& iconPath, const std::string& iconHL, const std::string& imgPath, const kn::Vec2& pos, const kn::Font& font, const int descID);
+    ~EvidenceItem() = default;
+
+    void drawIcon();
+    void drawDetails();
+
+private:
+    const kn::Texture iconTex;
+    const kn::Texture iconHighlight;
+    const kn::Texture imgTex;
+    kn::Rect rect;
+
+    kn::Texture textDesc;
+
+    bool opened = false;
+    bool justOpened = false;
+};
 
 class CrimeScene
 {
@@ -10,24 +29,15 @@ public:
     CrimeScene();
     ~CrimeScene() = default;
 
-    void draw();
-
-private:
-    const kn::Texture bgImg;
-    EvidenceItem note;
-    EvidenceItem pen;
-};
-
-class EvidenceItem
-{
-public:
-    EvidenceItem(const std::string& iconPath, const std::string& imgPath, const kn::Vec2& pos);
-    ~EvidenceItem() = default;
-
     void update();
 
 private:
-    const kn::Vec2 pos;
-    const kn::Texture iconTex;
-    const kn::Texture imgTex;
+    const kn::Texture concreteBg;
+    const kn::Vec2 bgSize;
+    const kn::Font font;
+
+    EvidenceItem burnedLetter;
+    EvidenceItem bootPrint;
+
+    kn::Vec2 panCam;
 };
