@@ -28,6 +28,12 @@ CrimeScene::CrimeScene()
           { 54, 39 },
           font,
           2)
+    , tornPicture("../assets/clue-items/photo.png",
+          "../assets/clue-items/photo-highlight.png",
+          "../assets/clue-items/big-photo.png",
+          { 65, 200 },
+          font,
+          3)
 {
 }
 
@@ -49,10 +55,12 @@ void CrimeScene::update()
     wetTowel.drawIcon();
     bootPrint.drawIcon();
     burnedLetter.drawIcon();
+    tornPicture.drawIcon();
 
     wetTowel.drawDetails();
     bootPrint.drawDetails();
     burnedLetter.drawDetails();
+    tornPicture.drawDetails();
 }
 
 EvidenceItem::EvidenceItem(const std::string& iconPath, const std::string& iconHL, const std::string& imgPath, const kn::Vec2& pos, const kn::Font& font, const int descID)
@@ -91,7 +99,7 @@ void EvidenceItem::drawDetails()
         return;
 
     const auto winSize = kn::window::getSize();
-    kn::draw::rect({ kn::camera, winSize }, { 0, 0, 0, 100 });
+    kn::draw::rect({ kn::camera, winSize }, { 0, 0, 0, 150 });
 
     const kn::Vec2 imgPos = { winSize.x * 3 / 4, winSize.y / 2 };
     kn::window::blit(imgTex, kn::camera + imgPos, kn::CENTER);

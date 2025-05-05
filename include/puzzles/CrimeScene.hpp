@@ -39,6 +39,7 @@ private:
     EvidenceItem wetTowel;
     EvidenceItem bootPrint;
     EvidenceItem burnedLetter;
+    EvidenceItem tornPicture;
 
     kn::Vec2 panCam;
 };
