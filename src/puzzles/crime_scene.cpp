@@ -10,18 +10,24 @@ CrimeScene::CrimeScene()
     : concreteBg("../assets/environ/concrete-bg.png")
     , bgSize(concreteBg.getSize())
     , font("kraken-retro", 8)
-    , burnedLetter("../assets/clue-items/note.png",
-          "../assets/clue-items/note-highlight.png",
-          "../assets/clue-items/big-note.png",
-          { 54, 39 },
+    , wetTowel("../assets/clue-items/towel.png",
+          "../assets/clue-items/towel-highlight.png",
+          "../assets/clue-items/big-towel.png",
+          { 340, 200 },
           font,
-          2)
+          0)
     , bootPrint("../assets/clue-items/bootprint.png",
           "../assets/clue-items/bootprint-highlight.png",
           "../assets/clue-items/big-bootprint.png",
           { 277, 54 },
           font,
           1)
+    , burnedLetter("../assets/clue-items/note.png",
+          "../assets/clue-items/note-highlight.png",
+          "../assets/clue-items/big-note.png",
+          { 54, 39 },
+          font,
+          2)
 {
 }
 
@@ -40,11 +46,13 @@ void CrimeScene::update()
     kn::camera = panCam;
     kn::window::blit(concreteBg);
 
-    burnedLetter.drawIcon();
+    wetTowel.drawIcon();
     bootPrint.drawIcon();
+    burnedLetter.drawIcon();
 
-    burnedLetter.drawDetails();
+    wetTowel.drawDetails();
     bootPrint.drawDetails();
+    burnedLetter.drawDetails();
 }
 
 EvidenceItem::EvidenceItem(const std::string& iconPath, const std::string& iconHL, const std::string& imgPath, const kn::Vec2& pos, const kn::Font& font, const int descID)

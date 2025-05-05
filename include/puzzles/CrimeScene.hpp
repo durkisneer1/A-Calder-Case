@@ -36,8 +36,9 @@ private:
     const kn::Vec2 bgSize;
     const kn::Font font;
 
-    EvidenceItem burnedLetter;
+    EvidenceItem wetTowel;
     EvidenceItem bootPrint;
+    EvidenceItem burnedLetter;
 
     kn::Vec2 panCam;
 };
