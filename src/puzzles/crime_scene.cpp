@@ -15,25 +15,31 @@ CrimeScene::CrimeScene()
           "../assets/clue-items/big-towel.png",
           { 340, 200 },
           font,
-          0)
+          1)
     , bootPrint("../assets/clue-items/bootprint.png",
           "../assets/clue-items/bootprint-highlight.png",
           "../assets/clue-items/big-bootprint.png",
           { 277, 54 },
           font,
-          1)
+          2)
     , burnedLetter("../assets/clue-items/note.png",
           "../assets/clue-items/note-highlight.png",
           "../assets/clue-items/big-note.png",
           { 54, 39 },
           font,
-          2)
+          3)
     , tornPicture("../assets/clue-items/photo.png",
           "../assets/clue-items/photo-highlight.png",
           "../assets/clue-items/big-photo.png",
           { 65, 200 },
           font,
-          3)
+          4)
+    , usbStick("../assets/clue-items/usb.png",
+          "../assets/clue-items/usb-highlight.png",
+          "../assets/clue-items/big-usb.png",
+          { 374, 99 },
+          font,
+          5)
 {
 }
 
@@ -56,11 +62,13 @@ void CrimeScene::update()
     bootPrint.drawIcon();
     burnedLetter.drawIcon();
     tornPicture.drawIcon();
+    usbStick.drawIcon();
 
     wetTowel.drawDetails();
     bootPrint.drawDetails();
     burnedLetter.drawDetails();
     tornPicture.drawDetails();
+    usbStick.drawDetails();
 }
 
 EvidenceItem::EvidenceItem(const std::string& iconPath, const std::string& iconHL, const std::string& imgPath, const kn::Vec2& pos, const kn::Font& font, const int descID)

@@ -40,6 +40,7 @@ private:
     EvidenceItem bootPrint;
     EvidenceItem burnedLetter;
     EvidenceItem tornPicture;
+    EvidenceItem usbStick;
 
     kn::Vec2 panCam;
 };
