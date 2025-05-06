@@ -22,4 +22,6 @@ private:
 
     CrimeScene crimeScene;
     bool inScene = false;
+
+    const kn::Rect doorRect = { 290, 56, 6, 48 };
 };

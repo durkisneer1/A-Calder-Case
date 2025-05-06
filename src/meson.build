@@ -8,4 +8,5 @@ src = [
     'src/states/room_state.cpp',
 ] + [
     'src/puzzles/crime_scene.cpp',
+    'src/puzzles/phone_box.cpp',
 ]

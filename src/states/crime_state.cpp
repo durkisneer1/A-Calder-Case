@@ -27,6 +27,13 @@ void CrimeState::update()
         }
     }
 
+    if (player.getRect().collideRect(doorRect))
+    {
+        kn::draw::rect(doorRect, kn::color::YELLOW, 1);
+        if (kn::key::isJustPressed(kn::S_e))
+            m_core->currState = AppState::OUTSIDE;
+    }
+
     player.draw(m_core->dt);
 
     inScene ? crimeScene.update() : player.move(m_core->dt);

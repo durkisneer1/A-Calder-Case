@@ -35,17 +35,20 @@ void OutsideState::update()
 
     tileMap.drawMap();
 
-    if (player.getRect().collideRect(doorRect))
+    const auto playerRect = player.getRect();
+    if (playerRect.collideRect(doorRect))
     {
         kn::draw::rect(doorRect, kn::color::YELLOW, 1);
         if (kn::key::isJustPressed(kn::S_e))
             m_core->currState = AppState::ROOM;
     }
 
-    if (car.updateAndCollide(player.getRect()) && kn::key::isJustPressed(kn::S_e))
+    if (car.updateAndCollide(playerRect) && kn::key::isJustPressed(kn::S_e))
         m_core->currState = AppState::CRIME;
 
     player.move(m_core->dt);
+
+    phoneBox.update(playerRect);
     player.draw(m_core->dt);
     kn::window::blit(multLayer, { 0, kn::camera.y });
     tileMap.getLayer("grass")->draw();

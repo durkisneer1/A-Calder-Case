@@ -3,6 +3,8 @@
 #include "BaseState.hpp"
 #include "Car.hpp"
 #include "Player.hpp"
+#include "puzzles/PhoneBox.hpp"
+
 #include <KrakenEngine.hpp>
 
 class Core;
@@ -26,4 +28,6 @@ private:
     const kn::Texture bigTreeTex;
     const kn::Texture bgTrees;
     const kn::Texture multLayer;
+
+    PhoneBox phoneBox;
 };
