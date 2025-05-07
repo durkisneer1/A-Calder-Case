@@ -37,6 +37,7 @@
 # Meson
 subprojects/*
 !subprojects/kraken-engine.wrap
+!subprojects/nlohmann_json.wrap
 build/
 
 # CLangFormatter

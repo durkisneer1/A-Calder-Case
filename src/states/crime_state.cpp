@@ -3,7 +3,7 @@
 
 CrimeState::CrimeState(Core* core)
     : BaseState(core, kn::color::fromHex("#1f1f29"))
-    , tileMap("../assets/environ/crime.tmx")
+    , tileMap("../assets/environ/crime.tmx", 1)
     , player(tileMap.getLayer("Ground"), { 256, 64 })
     , bgTex("../assets/environ/crime-scene.png")
 {
@@ -22,8 +22,21 @@ void CrimeState::update()
     {
         if (kn::key::isJustPressed(kn::S_e) && player.getRect().collideRect(tapeTile.collider))
         {
-            inScene = !inScene;
+            inScene = true;
             break;
+        }
+    }
+
+    if (kn::key::isJustPressed(kn::K_ESC))
+    {
+        if (inScene && !crimeScene.isOpen())
+        {
+            inScene = false;
+        }
+        else if (!inScene)
+        {
+            m_core->prevPauseState = m_core->currState;
+            m_core->currState = AppState::PAUSE;
         }
     }
 

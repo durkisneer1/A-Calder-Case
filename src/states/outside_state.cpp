@@ -6,7 +6,7 @@
 
 OutsideState::OutsideState(Core* core)
     : BaseState(core, kn::color::fromHex("#eaf0d8"))
-    , tileMap("../assets/environ/outside.tmx")
+    , tileMap("../assets/environ/outside.tmx", 1)
     , player(tileMap.getLayer("ground"), { 504, 56 })
     , firstPass("../assets/environ/outside-firstpass.png")
     , treeTex("../assets/environ/tree.png")
@@ -19,9 +19,52 @@ OutsideState::OutsideState(Core* core)
     multLayer.makeMultiply();
 }
 
+void OutsideState::handleEvents(const kn::Event& event)
+{
+    static std::unordered_map<kn::Keycode, int> keyMap = {
+        { kn::K_0, 0 },
+        { kn::K_KP_0, 0 },
+        { kn::K_1, 1 },
+        { kn::K_KP_1, 1 },
+        { kn::K_2, 2 },
+        { kn::K_KP_2, 2 },
+        { kn::K_3, 3 },
+        { kn::K_KP_3, 3 },
+        { kn::K_4, 4 },
+        { kn::K_KP_4, 4 },
+        { kn::K_5, 5 },
+        { kn::K_KP_5, 5 },
+        { kn::K_6, 6 },
+        { kn::K_KP_6, 6 },
+        { kn::K_7, 7 },
+        { kn::K_KP_7, 7 },
+        { kn::K_8, 8 },
+        { kn::K_KP_8, 8 },
+        { kn::K_9, 9 },
+        { kn::K_KP_9, 9 },
+    };
+
+    if (event.type == kn::KEYDOWN)
+    {
+        auto it = keyMap.find(event.key.keysym.sym);
+        if (phoneBox.ready() && it != keyMap.end())
+        {
+            phoneBox.addNumber(it->second);
+        }
+    }
+}
+
 void OutsideState::update()
 {
-    kn::camera = { player.getRect().bottomMid().x - m_camera.x, m_camera.y };
+    if (!phoneBox.isOpen() && kn::key::isJustPressed(kn::K_ESC))
+    {
+        m_core->prevPauseState = m_core->currState;
+        m_core->currState = AppState::PAUSE;
+    }
+
+    const auto winSize = kn::window::getSize();
+
+    kn::camera = { player.getRect().bottomMid().x - winSize.x / 2, m_camera.y };
     kn::camera.x = std::clamp(kn::camera.x, 0.0, 224.0);
 
     kn::window::clear(m_bgColor);
@@ -48,8 +91,10 @@ void OutsideState::update()
 
     player.move(m_core->dt);
 
-    phoneBox.update(playerRect);
+    phoneBox.drawBooth(playerRect);
     player.draw(m_core->dt);
     kn::window::blit(multLayer, { 0, kn::camera.y });
     tileMap.getLayer("grass")->draw();
+
+    phoneBox.drawDial();
 }

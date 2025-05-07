@@ -10,6 +10,9 @@ enum class AppState
     ROOM,
     OUTSIDE,
     CRIME,
+    GOOD,
+    BAD,
+    PAUSE,
 };
 
 class Core final
@@ -17,6 +20,7 @@ class Core final
 public:
     double dt;
     AppState currState;
+    AppState prevPauseState;
 
     Core();
     ~Core();

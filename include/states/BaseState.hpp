@@ -14,6 +14,10 @@ public:
     }
     virtual ~BaseState() = default;
 
+    virtual void handleEvents(const kn::Event& event)
+    {
+    }
+
     virtual void update() = 0;
 
 protected:

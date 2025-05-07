@@ -1,6 +1,6 @@
 #pragma once
 
-#include "BaseState.hpp"
+#include "states/BaseState.hpp"
 #include "Car.hpp"
 #include "Player.hpp"
 #include "puzzles/PhoneBox.hpp"
@@ -14,6 +14,8 @@ class OutsideState final : public BaseState
 public:
     OutsideState(Core* core);
     ~OutsideState() = default;
+
+    void handleEvents(const kn::Event& event) override;
 
     void update() override;
 

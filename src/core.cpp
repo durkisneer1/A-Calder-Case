@@ -3,11 +3,15 @@
 #include "states/RoomState.hpp"
 #include "states/OutsideState.hpp"
 #include "states/CrimeState.hpp"
+#include "states/EndState.hpp"
+#include "states/PauseState.hpp"
 
 Core::Core()
-    : currState(AppState::CRIME) // AppState::ROOM
+    : currState(AppState::ROOM) // AppState::ROOM
 {
-    kn::window::init({ 320, 180 }, "Noir Jam", true);
+    prevPauseState = currState;
+
+    kn::window::init({ 320, 180 }, "A Calder Case", true);
 
     kn::input::bind("left",
         {
@@ -28,6 +32,9 @@ Core::Core()
     stateMap[AppState::ROOM] = new RoomState(this);
     stateMap[AppState::OUTSIDE] = new OutsideState(this);
     stateMap[AppState::CRIME] = new CrimeState(this);
+    stateMap[AppState::GOOD] = new EndState(this, "You figured out the killer.");
+    stateMap[AppState::BAD] = new EndState(this, "You imprisoned the wrong suspect.");
+    stateMap[AppState::PAUSE] = new PauseState(this);
 }
 
 Core::~Core()
@@ -43,19 +50,27 @@ Core::~Core()
 
 void Core::run()
 {
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+
     kn::Event event;
     kn::Clock clock;
     clock.tick(); // Clear first tick
 
+    kn::music::load("../assets/audio/The Calder Case.ogg");
+    kn::music::setVolume(0.03f);
+    kn::music::play(-1, 5000);
+
     while (kn::window::isOpen())
     {
         dt = clock.tick(240);
+        BaseState* state = stateMap.at(currState);
 
-        while (kn::window::pollEvent(event));
-        if (kn::key::isJustPressed(kn::K_ESC))
-            kn::window::close();
+        while (kn::window::pollEvent(event))
+        {
+            state->handleEvents(event);
+        }
 
-        stateMap.at(currState)->update();
+        state->update();
         kn::window::flip();
     }
 }

@@ -1,0 +1,95 @@
+{
+    "Darlene": {
+        "1": [
+            "Calder: Do you think Eva may have had a reason to hurt Nola?",
+            "Darlene: Eva? No... no, she practically lived here when they were younger.",
+            "Darlene: I used to call her my second daughter.",
+            "Darlene: Things were rocky lately, sure.",
+            "Darlene: But Nola loved her, even when they argued."
+        ],
+        "2": [
+            "Calder: Was Nola afraid of anyone recently?",
+            "Darlene: She didn't say it outright, but... I think someone was bothering her.",
+            "Darlene: She'd get these late calls and shut herself in her room after.",
+            "Darlene: Wouldn't let me see her phone. I wish I'd pushed harder."
+        ],
+        "3": [
+            "Calder: What can you tell me about Trevor Hart?",
+            "Darlene: Him. I never liked that boy. Too smooth.",
+            "Darlene: Nola tried to warn Eva, but he always found a way back in.",
+            "Darlene: After they reconnected, Nola said he gave her a bad feeling... like he was watching her."
+        ],
+        "4": [
+            "Calder: Where was Eva the night Nola died?",
+            "Darlene: You think she-? No. No, don't do that. I can't-",
+            "Calder: I'm just trying to confirm everyone's whereabouts.",
+            "Darlene: Then ask them. I'm not your suspect. I've said enough."
+        ],
+        "0": [
+            "Darlene: Detective... I can't do this. I already lost my daughter.",
+            "Darlene: I'm not going to let you twist her memory into something ugly. Please stop calling."
+        ]
+    },
+    "Mallory": {
+        "1": [
+            "Calder: Do you have security footage from the day of the murder?",
+            "Mallory: I... I meant to review it, but we've got a blind spot near the back tables.",
+            "Mallory: Old camera wiring. I've been meaning to fix it. So if anything happened back there...",
+            "Calder: A blind spot like that could hide a lot. You understand how serious this is, right?",
+            "Mallory: I run a cafe, not a crime lab. Don't make this my fault. I already feel guilty enough."
+        ],
+        "2": [
+            "Calder: Did anything unusual happen at the cafe recently involving Nola?",
+            "Mallory: She came in about a week before... but she didn't sit with anyone.",
+            "Mallory: Just stared out the window like she was waiting for something. Or someone."
+        ],
+        "3": [
+            "Calder: Did Trevor Hart ever come by here?",
+            "Mallory: Oh yeah. Lurking outside a few times.",
+            "Mallory: One of my baristas told me he stood across the street just... watching.",
+            "Mallory: Creeped everyone out. I nearly called the cops once."
+        ],
+        "4": [
+            "Calder: Someone said Amber caused a scene here. Is this true?",
+            "Mallory: Oh yeah. Came in with attitude, like she owned the place.",
+            "Mallory: Nola stood up, told her to leave.",
+            "Mallory: I didn't hear the whole thing, but it was heated.",
+            "Mallory: We had to ask Amber not to come back."
+        ],
+        "0": [
+            "Mallory: I'm trying to run a business, not play therapist.",
+            "Mallory: I feel awful about what happened, but I've told you everything I know.",
+            "Mallory: Please... no more calls."
+        ]
+    },
+    "Andre": {
+        "1": [
+            "Calder: What was she trying to recover?",
+            "Andre: She said it was deleted files, maybe from a phone?",
+            "Andre: Wouldn't tell me what. She looked... scared. Real on-edge."
+        ],
+        "2": [
+            "Calder: Did she mention anyone following her?",
+            "Andre: Yeah... she said someone was watching her. Kept checking over her shoulder.",
+            "Andre: I thought she was being paranoid but now..."
+        ],
+        "3": [
+            "Calder: Were you able to recover anything?",
+            "Andre: Not before she... Look, I got some fragments, but I haven't gone through them all.",
+            "Andre: I didn't want to open anything personal.",
+            "Calder: You seem jumpy, Andre. You sure you're not hiding anything?",
+            "Andre: Whoa- look, I fix laptops. That's it. I didn't kill anyone, and I'm not gonna get dragged into this."
+        ],
+        "4": [
+            "Calder: Would you happen to have a copy of her drive?",
+            "Andre: No, we don't do that here. Only ever had the files she gave me access to.",
+            "Andre: But she did mention some backup, like a physical copy, just in case.",
+            "Andre: I assumed she meant it was stashed somewhere. Not with me."
+        ],
+        "0": [
+            "Andre: Look, I already talked to you once. I'm not part of this.",
+            "Andre: I was just trying to help her get back some files. That's it.",
+            "Andre: Stop calling. I'm done being your scapegoat."
+        ]
+    }
+}

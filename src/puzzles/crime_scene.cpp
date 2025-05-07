@@ -43,6 +43,11 @@ CrimeScene::CrimeScene()
 {
 }
 
+bool CrimeScene::isOpen() const
+{
+    return anyItemOpen;
+}
+
 void CrimeScene::update()
 {
     if (!anyItemOpen)
@@ -121,7 +126,7 @@ void EvidenceItem::drawDetails()
         return;
     }
 
-    if (kn::mouse::isJustPressed(kn::M_LEFT))
+    if (kn::key::isJustPressed(kn::K_ESC))
     {
         opened = false;
         anyItemOpen = false;

@@ -30,6 +30,7 @@ public:
     ~CrimeScene() = default;
 
     void update();
+    bool isOpen() const;
 
 private:
     const kn::Texture concreteBg;
@@ -43,4 +44,6 @@ private:
     EvidenceItem usbStick;
 
     kn::Vec2 panCam;
+
+    bool itemJustClosed = false;
 };

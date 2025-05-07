@@ -6,9 +6,17 @@
 Player::Player(const kn::Layer* colLayer, const kn::Vec2& spawnPos)
     : rect(spawnPos, 21, 41)
     , colLayer(colLayer)
+    , footStepTimer(0.6)
 {
     anim.loadSpriteSheet("idle", "../assets/player/idle.png", rect.size(), 7);
     anim.loadSpriteSheet("walk", "../assets/player/walk.png", rect.size(), 7);
+
+    for (size_t i = 0; i < footSteps.size(); ++i)
+    {
+        footSteps.at(i).loadFromFile("../assets/audio/steps/step" + std::to_string(i) + ".ogg");
+        footSteps.at(i).setVolume(0.5f);
+    }
+    footStepTimer.start();
 }
 
 kn::Rect Player::getRect() const
@@ -40,6 +48,12 @@ void Player::move(const double dt)
             facingRight = true;
         else if (xDir < 0.0)
             facingRight = false;
+
+        if (footStepTimer.isFinished())
+        {
+            footSteps.at(rand() % footSteps.size()).play();
+            footStepTimer.start();
+        }
     }
     else
         anim.setAnim("idle");

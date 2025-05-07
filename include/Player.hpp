@@ -18,9 +18,18 @@ private:
     kn::Vec2 vel;
     kn::Rect rect;
     bool facingRight = true;
-    const double SPEED = 100; // 40
+    const double SPEED = 40; // 40
     bool onGround = false;
     const kn::Layer* colLayer;
+
+    std::array<kn::Sound, 5> footSteps = {
+        kn::Sound(),
+        kn::Sound(),
+        kn::Sound(),
+        kn::Sound(),
+        kn::Sound(),
+    };
+    kn::Timer footStepTimer;
 
     void handleCollision(int axis);
 };
