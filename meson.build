@@ -14,7 +14,7 @@ inc = include_directories('include')
 subdir('src')
 
 executable(
-    'app',
+    'A Calder Case',
     src + 'main.cpp',
     include_directories: inc,
     dependencies: [kraken_dep, json_dep],
